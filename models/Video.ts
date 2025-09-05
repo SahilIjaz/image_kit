@@ -37,6 +37,8 @@ const videoSchema = new mongoose.Schema<IVideo>(
   }
 );
 
+
 const Video =
   mongoose.models.Video || mongoose.model<IVideo>("Video", videoSchema);
 export default Video;
+
