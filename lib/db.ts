@@ -18,7 +18,7 @@ export async function dbConnect() {
   }
   if (!cached.promise) {
     let opts = {
-      bufferCommand: true,
+      // bufferCommand: true,
       maxPoolSize: 10,
     };
 

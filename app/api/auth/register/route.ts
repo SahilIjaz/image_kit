@@ -3,6 +3,7 @@ import { dbConnect } from "@/lib/db";
 import User from "@/models/User";
 
 export async function POST(request: NextRequest) {
+  await dbConnect();
   try {
     const { email, password } = await request.json();
 
@@ -27,7 +28,10 @@ export async function POST(request: NextRequest) {
       { message: "User registered successfully.", user },
       { status: 200 }
     );
-
-    
-  } catch (error) {}
+  } catch (error) {
+    return NextResponse.json(
+      { message: "Internal server error, duing user registeration.", error },
+      { status: 500 }
+    );
+  }
 }
